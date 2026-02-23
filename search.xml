@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据结构入门：数组、链表与栈</title>
+    <url>/hexo-blog/2026/02/23/data-structures/</url>
+    <content><![CDATA[<p>数据结构是计算机科学的基础，理解它们对于编写高效程序至关重要。本文介绍三种基础数据结构。</p>
+<span id="more"></span>
+
+<h2 id="为什么学习数据结构"><a href="#为什么学习数据结构" class="headerlink" title="为什么学习数据结构"></a>为什么学习数据结构</h2><ul>
+<li>提高程序运行效率</li>
+<li>解决复杂问题的基础</li>
+<li>面试必考内容</li>
+<li>理解更高级的算法</li>
+</ul>
+<h2 id="数组（Array）"><a href="#数组（Array）" class="headerlink" title="数组（Array）"></a>数组（Array）</h2><p>数组是最基本的数据结构，元素在内存中连续存储。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>随机访问：O(1)</li>
+<li>插入&#x2F;删除：O(n)</li>
+<li>固定大小（静态数组）</li>
+</ul>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python中的列表（动态数组）</span></span><br><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问元素 - O(1)</span></span><br><span class="line"><span class="built_in">print</span>(arr[<span class="number">2</span>])  <span class="comment"># 输出：3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加元素 - O(1) 平均</span></span><br><span class="line">arr.append(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入元素 - O(n)</span></span><br><span class="line">arr.insert(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除元素 - O(n)</span></span><br><span class="line">arr.remove(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// JavaScript数组</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常用方法</span></span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">6</span>);        <span class="comment">// 末尾添加</span></span><br><span class="line">arr.<span class="title function_">pop</span>();          <span class="comment">// 末尾删除</span></span><br><span class="line">arr.<span class="title function_">unshift</span>(<span class="number">0</span>);     <span class="comment">// 开头添加</span></span><br><span class="line">arr.<span class="title function_">shift</span>();        <span class="comment">// 开头删除</span></span><br><span class="line">arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">3</span>);    <span class="comment">// 切片</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="链表（Linked-List）"><a href="#链表（Linked-List）" class="headerlink" title="链表（Linked List）"></a>链表（Linked List）</h2><p>链表由节点组成，每个节点包含数据和指向下一个节点的指针。</p>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>随机访问：O(n)</li>
+<li>插入&#x2F;删除：O(1)（已知位置）</li>
+<li>动态大小</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.val = val</span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">append</span>(<span class="params">self, val</span>):</span><br><span class="line">        new_node = ListNode(val)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.head:</span><br><span class="line">            <span class="variable language_">self</span>.head = new_node</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        current = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> current.<span class="built_in">next</span>:</span><br><span class="line">            current = current.<span class="built_in">next</span></span><br><span class="line">        current.<span class="built_in">next</span> = new_node</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_list</span>(<span class="params">self</span>):</span><br><span class="line">        current = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> current:</span><br><span class="line">            <span class="built_in">print</span>(current.val, end=<span class="string">&quot; -&gt; &quot;</span>)</span><br><span class="line">            current = current.<span class="built_in">next</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;None&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">ll = LinkedList()</span><br><span class="line">ll.append(<span class="number">1</span>)</span><br><span class="line">ll.append(<span class="number">2</span>)</span><br><span class="line">ll.append(<span class="number">3</span>)</span><br><span class="line">ll.print_list()  <span class="comment"># 1 -&gt; 2 -&gt; 3 -&gt; None</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h2><p>栈是一种后进先出（LIFO）的数据结构。</p>
+<h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>只能在栈顶操作</li>
+<li>push：入栈 O(1)</li>
+<li>pop：出栈 O(1)</li>
+<li>peek：查看栈顶 O(1)</li>
+</ul>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.items = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="variable language_">self</span>.items.append(item)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.items.pop()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.items[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_empty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.items) == <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.items)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">stack = Stack()</span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(stack.pop())   <span class="comment"># 3</span></span><br><span class="line"><span class="built_in">print</span>(stack.peek())  <span class="comment"># 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
+<li>浏览器前进&#x2F;后退</li>
+<li>撤销操作（Ctrl+Z）</li>
+<li>函数调用栈</li>
+<li>括号匹配</li>
+</ul>
+<h2 id="时间复杂度对比"><a href="#时间复杂度对比" class="headerlink" title="时间复杂度对比"></a>时间复杂度对比</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>数组</th>
+<th>链表</th>
+<th>栈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>访问</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>插入</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+</tbody></table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>选择合适的数据结构是编写高效程序的关键。数组适合频繁访问，链表适合频繁插入删除，栈适合后进先出的场景。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>计算机基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git版本控制：程序员必备技能</title>
+    <url>/hexo-blog/2026/02/23/git-tutorial/</url>
+    <content><![CDATA[<p>Git是最流行的分布式版本控制系统，每个程序员都应该掌握。本文介绍Git的核心概念和常用命令。</p>
+<span id="more"></span>
+
+<h2 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h2><p>Git是一个分布式版本控制系统，可以：</p>
+<ul>
+<li>追踪文件的修改历史</li>
+<li>多人协作开发</li>
+<li>回退到任意历史版本</li>
+<li>管理多个开发分支</li>
+</ul>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置用户名和邮箱</span></span><br><span class="line">git config --global user.name <span class="string">&quot;你的名字&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;your@email.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建新仓库</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆远程仓库</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/user/repo.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本工作流"><a href="#基本工作流" class="headerlink" title="基本工作流"></a>基本工作流</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加文件到暂存区</span></span><br><span class="line">git add filename.txt</span><br><span class="line">git add .  <span class="comment"># 添加所有文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交更改</span></span><br><span class="line">git commit -m <span class="string">&quot;提交说明&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看提交历史</span></span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新分支</span></span><br><span class="line">git branch feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换分支</span></span><br><span class="line">git checkout feature-login</span><br><span class="line"><span class="comment"># 或使用新语法</span></span><br><span class="line">git switch feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并切换</span></span><br><span class="line">git checkout -b feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并分支</span></span><br><span class="line">git merge feature-login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">git branch -d feature-login</span><br></pre></td></tr></table></figure>
+
+<h3 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加远程仓库</span></span><br><span class="line">git remote add origin https://github.com/user/repo.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 推送到远程</span></span><br><span class="line">git push origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拉取更新</span></span><br><span class="line">git pull origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看远程信息</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 撤销工作区修改</span></span><br><span class="line">git checkout -- filename.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销暂存</span></span><br><span class="line">git reset HEAD filename.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销提交（保留修改）</span></span><br><span class="line">git reset --soft HEAD^</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销提交（丢弃修改）</span></span><br><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git工作流程图"><a href="#Git工作流程图" class="headerlink" title="Git工作流程图"></a>Git工作流程图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">工作区 --&gt; git add --&gt; 暂存区 --&gt; git commit --&gt; 本地仓库 --&gt; git push --&gt; 远程仓库</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Git是现代软件开发的基础工具，熟练使用Git可以大大提高开发效率和团队协作能力。</p>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>版本控制</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript基础：网页交互的核心</title>
+    <url>/hexo-blog/2026/02/23/javascript-fundamentals/</url>
+    <content><![CDATA[<p>JavaScript是Web开发的核心语言，让网页具有交互能力。本文介绍JavaScript的基础概念。</p>
+<span id="more"></span>
+
+<h2 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h2><p>JavaScript最初是为了在浏览器中运行而设计的，如今已经发展成为全栈开发语言，可以运行在服务器端（Node.js）。</p>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用let声明变量（推荐）</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">&quot;JavaScript&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> age = <span class="number">25</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用const声明常量</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">PI</span> = <span class="number">3.14159</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 避免使用var（旧语法）</span></span><br><span class="line"><span class="keyword">var</span> oldWay = <span class="string">&quot;不推荐&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基本类型</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;字符串&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">42</span>;</span><br><span class="line"><span class="keyword">let</span> bool = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> empty = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> notDefined = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用类型</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">key</span>: <span class="string">&quot;value&quot;</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数（ES6）</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">multiply</span> = (<span class="params">a, b</span>) =&gt; a * b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>));      <span class="comment">// 5</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">multiply</span>(<span class="number">4</span>, <span class="number">5</span>)); <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取元素</span></span><br><span class="line"><span class="keyword">const</span> button = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myButton&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> items = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;.item&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加事件监听</span></span><br><span class="line">button.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&quot;按钮被点击了！&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改内容</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;title&quot;</span>).<span class="property">textContent</span> = <span class="string">&quot;新标题&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&quot;https://api.example.com/data&quot;</span>)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data))</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">error</span>(error));</span><br><span class="line"></span><br><span class="line"><span class="comment">// async/await</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getData</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&quot;https://api.example.com/data&quot;</span>);</span><br><span class="line">        <span class="keyword">const</span> data = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>JavaScript是前端开发必备技能，掌握这些基础知识后，你就可以开始构建交互式网页了！</p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>前端开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/hexo-blog/2026/02/23/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -17,5 +172,34 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Python入门：从零开始学编程</title>
+    <url>/hexo-blog/2026/02/23/python-basics/</url>
+    <content><![CDATA[<p>Python是一门简洁优雅的编程语言，非常适合初学者入门。本文将介绍Python的基础知识。</p>
+<span id="more"></span>
+
+<h2 id="为什么选择Python"><a href="#为什么选择Python" class="headerlink" title="为什么选择Python"></a>为什么选择Python</h2><ul>
+<li><strong>语法简洁</strong>：Python代码接近自然语言，易于阅读和编写</li>
+<li><strong>应用广泛</strong>：Web开发、数据分析、人工智能、自动化脚本等</li>
+<li><strong>社区活跃</strong>：丰富的第三方库和学习资源</li>
+</ul>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="变量和数据类型"><a href="#变量和数据类型" class="headerlink" title="变量和数据类型"></a>变量和数据类型</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 数字类型</span></span><br><span class="line">age = <span class="number">25</span></span><br><span class="line">price = <span class="number">19.99</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 字符串</span></span><br><span class="line">name = <span class="string">&quot;Python&quot;</span></span><br><span class="line">message = <span class="string">&#x27;欢迎学习编程&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 布尔值</span></span><br><span class="line">is_active = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表</span></span><br><span class="line">fruits = [<span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;香蕉&quot;</span>, <span class="string">&quot;橙子&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典</span></span><br><span class="line">person = &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;张三&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">20</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">score = <span class="number">85</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> score &gt;= <span class="number">90</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;优秀&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt;= <span class="number">60</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;及格&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;不及格&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># for循环</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;第<span class="subst">&#123;i+<span class="number">1</span>&#125;</span>次循环&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># while循环</span></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> count &lt; <span class="number">3</span>:</span><br><span class="line">    <span class="built_in">print</span>(count)</span><br><span class="line">    count += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;问候函数&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;你好，<span class="subst">&#123;name&#125;</span>！&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">result = greet(<span class="string">&quot;世界&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment"># 输出：你好，世界！</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Python的简洁语法使其成为学习编程的理想选择。掌握这些基础知识后，你就可以开始编写自己的程序了！</p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程入门</tag>
+      </tags>
   </entry>
 </search>
