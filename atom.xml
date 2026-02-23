@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>sceatcher3</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <id>https://sceatcher3.github.io/hexo-blog/</id>
+  <link href="https://sceatcher3.github.io/hexo-blog/" rel="alternate"/>
+  <link href="https://sceatcher3.github.io/hexo-blog/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, sceatcher3</rights>
+  <title>My Blog</title>
+  <updated>2026-02-23T11:42:45.395Z</updated>
+  <entry>
+    <author>
+      <name>sceatcher3</name>
+    </author>
+    <id>https://sceatcher3.github.io/hexo-blog/2026/02/23/hello-world/</id>
+    <link href="https://sceatcher3.github.io/hexo-blog/2026/02/23/hello-world/"/>
+    <published>2026-02-23T11:42:45.394Z</published>
+    <summary>
+      <![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a>]]>
+    </summary>
+    <title>Hello World</title>
+    <updated>2026-02-23T11:42:45.395Z</updated>
+  </entry>
+</feed>
