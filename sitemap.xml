@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sceatcher3.github.io/hexo-blog/2026/02/23/markdown-test/</loc>
+    
+    <lastmod>2026-02-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sceatcher3.github.io/hexo-blog/2026/02/23/data-structures/</loc>
     
     <lastmod>2026-02-23</lastmod>
@@ -77,6 +86,20 @@
   </url>
   
   <url>
+    <loc>https://sceatcher3.github.io/hexo-blog/tags/Markdown/</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sceatcher3.github.io/hexo-blog/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://sceatcher3.github.io/hexo-blog/tags/Git/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -129,6 +152,13 @@
   
   <url>
     <loc>https://sceatcher3.github.io/hexo-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sceatcher3.github.io/hexo-blog/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

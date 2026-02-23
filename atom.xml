@@ -27,6 +27,22 @@
     <author>
       <name>sceatcher3</name>
     </author>
+    <category term="博客" scheme="https://sceatcher3.github.io/hexo-blog/categories/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="Markdown" scheme="https://sceatcher3.github.io/hexo-blog/tags/Markdown/"/>
+    <category term="测试" scheme="https://sceatcher3.github.io/hexo-blog/tags/%E6%B5%8B%E8%AF%95/"/>
+    <id>https://sceatcher3.github.io/hexo-blog/2026/02/23/markdown-test/</id>
+    <link href="https://sceatcher3.github.io/hexo-blog/2026/02/23/markdown-test/"/>
+    <published>2026-02-23T06:00:00.000Z</published>
+    <summary>
+      <![CDATA[<p>这是一篇用于测试Markdown各种语法渲染效果的文章。</p>]]>
+    </summary>
+    <title>Markdown语法测试</title>
+    <updated>2026-02-23T12:08:50.729Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>sceatcher3</name>
+    </author>
     <category term="计算机科学" scheme="https://sceatcher3.github.io/hexo-blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/"/>
     <category term="数据结构" scheme="https://sceatcher3.github.io/hexo-blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <category term="算法" scheme="https://sceatcher3.github.io/hexo-blog/tags/%E7%AE%97%E6%B3%95/"/>
