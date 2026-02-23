@@ -105,3 +105,29 @@ deploy:
   type: git
   repo: https://github.com/sceatcher3/hexo-blog.git
   branch: gh-pages
+
+# RSS Feed
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+
+# Sitemap
+sitemap:
+  path: sitemap.xml
+  rel: false
+  tags: true
+  categories: true
+
+# Local Search
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
