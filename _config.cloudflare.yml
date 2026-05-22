@@ -2,5 +2,5 @@
 # 构建命令: hexo generate --config _config.yml,_config.cloudflare.yml
 
 # Cloudflare Pages 部署在根域名下，root 必须设为 /
-url: https://hexo-blog.pages.dev
+url: https://hexo-blog-2sx.pages.dev
 root: /
