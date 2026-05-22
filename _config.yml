@@ -3,10 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: My Blog
-subtitle: ''
-description: ''
+title: sceatcher3's Blog
+subtitle: '记录技术成长，分享编程知识'
+description: '个人技术博客，涵盖前端开发、后端架构、数据结构与算法、DevOps 等领域的原创文章与学习笔记。'
 keywords:
+  - 技术博客
+  - 前端开发
+  - JavaScript
+  - Python
+  - Git
+  - 数据结构
 author: sceatcher3
 language: zh-CN
 timezone: Asia/Shanghai
@@ -38,7 +44,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: []
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -47,13 +53,16 @@ future: true
 syntax_highlighter: highlight.js
 highlight:
   line_number: true
+  line_threshold: 0
   auto_detect: false
   tab_replace: ''
+  exclude_languages:
   wrap: true
   hljs: false
 prismjs:
   preprocess: true
   line_number: true
+  line_threshold: 0
   tab_replace: ''
 
 # Home page setting
