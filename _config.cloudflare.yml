@@ -1,0 +1,6 @@
+# Cloudflare Pages 配置覆盖
+# 构建命令: hexo generate --config _config.yml,_config.cloudflare.yml
+
+# Cloudflare Pages 部署在根域名下，root 必须设为 /
+url: https://hexo-blog.pages.dev
+root: /
