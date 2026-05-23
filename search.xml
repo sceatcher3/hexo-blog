@@ -39,6 +39,114 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构入门：数组、链表与栈</title>
+    <url>/hexo-blog/2026/02/23/data-structures/</url>
+    <content><![CDATA[<p>数据结构是计算机科学的基础，理解它们对于编写高效程序至关重要。本文介绍三种基础数据结构。</p>
+<span id="more"></span>
+
+<h2 id="为什么学习数据结构"><a href="#为什么学习数据结构" class="headerlink" title="为什么学习数据结构"></a>为什么学习数据结构</h2><ul>
+<li>提高程序运行效率</li>
+<li>解决复杂问题的基础</li>
+<li>面试必考内容</li>
+<li>理解更高级的算法</li>
+</ul>
+<h2 id="数组（Array）"><a href="#数组（Array）" class="headerlink" title="数组（Array）"></a>数组（Array）</h2><p>数组是最基本的数据结构，元素在内存中连续存储。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>随机访问：O(1)</li>
+<li>插入&#x2F;删除：O(n)</li>
+<li>固定大小（静态数组）</li>
+</ul>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python中的列表（动态数组）</span></span><br><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问元素 - O(1)</span></span><br><span class="line"><span class="built_in">print</span>(arr[<span class="number">2</span>])  <span class="comment"># 输出：3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加元素 - O(1) 平均</span></span><br><span class="line">arr.append(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入元素 - O(n)</span></span><br><span class="line">arr.insert(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除元素 - O(n)</span></span><br><span class="line">arr.remove(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// JavaScript数组</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常用方法</span></span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">6</span>);        <span class="comment">// 末尾添加</span></span><br><span class="line">arr.<span class="title function_">pop</span>();          <span class="comment">// 末尾删除</span></span><br><span class="line">arr.<span class="title function_">unshift</span>(<span class="number">0</span>);     <span class="comment">// 开头添加</span></span><br><span class="line">arr.<span class="title function_">shift</span>();        <span class="comment">// 开头删除</span></span><br><span class="line">arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">3</span>);    <span class="comment">// 切片</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="链表（Linked-List）"><a href="#链表（Linked-List）" class="headerlink" title="链表（Linked List）"></a>链表（Linked List）</h2><p>链表由节点组成，每个节点包含数据和指向下一个节点的指针。</p>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>随机访问：O(n)</li>
+<li>插入&#x2F;删除：O(1)（已知位置）</li>
+<li>动态大小</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.val = val</span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">append</span>(<span class="params">self, val</span>):</span><br><span class="line">        new_node = ListNode(val)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.head:</span><br><span class="line">            <span class="variable language_">self</span>.head = new_node</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        current = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> current.<span class="built_in">next</span>:</span><br><span class="line">            current = current.<span class="built_in">next</span></span><br><span class="line">        current.<span class="built_in">next</span> = new_node</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_list</span>(<span class="params">self</span>):</span><br><span class="line">        current = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> current:</span><br><span class="line">            <span class="built_in">print</span>(current.val, end=<span class="string">&quot; -&gt; &quot;</span>)</span><br><span class="line">            current = current.<span class="built_in">next</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;None&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">ll = LinkedList()</span><br><span class="line">ll.append(<span class="number">1</span>)</span><br><span class="line">ll.append(<span class="number">2</span>)</span><br><span class="line">ll.append(<span class="number">3</span>)</span><br><span class="line">ll.print_list()  <span class="comment"># 1 -&gt; 2 -&gt; 3 -&gt; None</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h2><p>栈是一种后进先出（LIFO）的数据结构。</p>
+<h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>只能在栈顶操作</li>
+<li>push：入栈 O(1)</li>
+<li>pop：出栈 O(1)</li>
+<li>peek：查看栈顶 O(1)</li>
+</ul>
+<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.items = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="variable language_">self</span>.items.append(item)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.items.pop()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.items[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_empty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.items) == <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.items)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">stack = Stack()</span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(stack.pop())   <span class="comment"># 3</span></span><br><span class="line"><span class="built_in">print</span>(stack.peek())  <span class="comment"># 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
+<li>浏览器前进&#x2F;后退</li>
+<li>撤销操作（Ctrl+Z）</li>
+<li>函数调用栈</li>
+<li>括号匹配</li>
+</ul>
+<h2 id="时间复杂度对比"><a href="#时间复杂度对比" class="headerlink" title="时间复杂度对比"></a>时间复杂度对比</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>数组</th>
+<th>链表</th>
+<th>栈</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>访问</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>插入</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+</tbody></table>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>选择合适的数据结构是编写高效程序的关键。数组适合频繁访问，链表适合频繁插入删除，栈适合后进先出的场景。</p>
+]]></content>
+      <categories>
+        <category>计算机科学</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>计算机基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hexo-blog/2024/12/31/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>JavaScript基础：网页交互的核心</title>
     <url>/hexo-blog/2026/02/23/javascript-fundamentals/</url>
     <content><![CDATA[<p>JavaScript是Web开发的核心语言，让网页具有交互能力。本文介绍JavaScript的基础概念。</p>
@@ -216,114 +324,6 @@
         <tag>Markdown</tag>
         <tag>测试</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>数据结构入门：数组、链表与栈</title>
-    <url>/hexo-blog/2026/02/23/data-structures/</url>
-    <content><![CDATA[<p>数据结构是计算机科学的基础，理解它们对于编写高效程序至关重要。本文介绍三种基础数据结构。</p>
-<span id="more"></span>
-
-<h2 id="为什么学习数据结构"><a href="#为什么学习数据结构" class="headerlink" title="为什么学习数据结构"></a>为什么学习数据结构</h2><ul>
-<li>提高程序运行效率</li>
-<li>解决复杂问题的基础</li>
-<li>面试必考内容</li>
-<li>理解更高级的算法</li>
-</ul>
-<h2 id="数组（Array）"><a href="#数组（Array）" class="headerlink" title="数组（Array）"></a>数组（Array）</h2><p>数组是最基本的数据结构，元素在内存中连续存储。</p>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>随机访问：O(1)</li>
-<li>插入&#x2F;删除：O(n)</li>
-<li>固定大小（静态数组）</li>
-</ul>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python中的列表（动态数组）</span></span><br><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问元素 - O(1)</span></span><br><span class="line"><span class="built_in">print</span>(arr[<span class="number">2</span>])  <span class="comment"># 输出：3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加元素 - O(1) 平均</span></span><br><span class="line">arr.append(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入元素 - O(n)</span></span><br><span class="line">arr.insert(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除元素 - O(n)</span></span><br><span class="line">arr.remove(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// JavaScript数组</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常用方法</span></span><br><span class="line">arr.<span class="title function_">push</span>(<span class="number">6</span>);        <span class="comment">// 末尾添加</span></span><br><span class="line">arr.<span class="title function_">pop</span>();          <span class="comment">// 末尾删除</span></span><br><span class="line">arr.<span class="title function_">unshift</span>(<span class="number">0</span>);     <span class="comment">// 开头添加</span></span><br><span class="line">arr.<span class="title function_">shift</span>();        <span class="comment">// 开头删除</span></span><br><span class="line">arr.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">3</span>);    <span class="comment">// 切片</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="链表（Linked-List）"><a href="#链表（Linked-List）" class="headerlink" title="链表（Linked List）"></a>链表（Linked List）</h2><p>链表由节点组成，每个节点包含数据和指向下一个节点的指针。</p>
-<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>随机访问：O(n)</li>
-<li>插入&#x2F;删除：O(1)（已知位置）</li>
-<li>动态大小</li>
-</ul>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, val=<span class="number">0</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.val = val</span><br><span class="line">        <span class="variable language_">self</span>.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LinkedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.head = <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">append</span>(<span class="params">self, val</span>):</span><br><span class="line">        new_node = ListNode(val)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.head:</span><br><span class="line">            <span class="variable language_">self</span>.head = new_node</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        current = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> current.<span class="built_in">next</span>:</span><br><span class="line">            current = current.<span class="built_in">next</span></span><br><span class="line">        current.<span class="built_in">next</span> = new_node</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_list</span>(<span class="params">self</span>):</span><br><span class="line">        current = <span class="variable language_">self</span>.head</span><br><span class="line">        <span class="keyword">while</span> current:</span><br><span class="line">            <span class="built_in">print</span>(current.val, end=<span class="string">&quot; -&gt; &quot;</span>)</span><br><span class="line">            current = current.<span class="built_in">next</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;None&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">ll = LinkedList()</span><br><span class="line">ll.append(<span class="number">1</span>)</span><br><span class="line">ll.append(<span class="number">2</span>)</span><br><span class="line">ll.append(<span class="number">3</span>)</span><br><span class="line">ll.print_list()  <span class="comment"># 1 -&gt; 2 -&gt; 3 -&gt; None</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h2><p>栈是一种后进先出（LIFO）的数据结构。</p>
-<h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><ul>
-<li>只能在栈顶操作</li>
-<li>push：入栈 O(1)</li>
-<li>pop：出栈 O(1)</li>
-<li>peek：查看栈顶 O(1)</li>
-</ul>
-<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.items = []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="variable language_">self</span>.items.append(item)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.items.pop()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.is_empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">self</span>.items[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_empty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.items) == <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(<span class="variable language_">self</span>.items)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line">stack = Stack()</span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(stack.pop())   <span class="comment"># 3</span></span><br><span class="line"><span class="built_in">print</span>(stack.peek())  <span class="comment"># 2</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="栈的应用"><a href="#栈的应用" class="headerlink" title="栈的应用"></a>栈的应用</h3><ul>
-<li>浏览器前进&#x2F;后退</li>
-<li>撤销操作（Ctrl+Z）</li>
-<li>函数调用栈</li>
-<li>括号匹配</li>
-</ul>
-<h2 id="时间复杂度对比"><a href="#时间复杂度对比" class="headerlink" title="时间复杂度对比"></a>时间复杂度对比</h2><table>
-<thead>
-<tr>
-<th>操作</th>
-<th>数组</th>
-<th>链表</th>
-<th>栈</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>访问</td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>搜索</td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>O(n)</td>
-</tr>
-<tr>
-<td>插入</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>O(1)</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>O(1)</td>
-</tr>
-</tbody></table>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>选择合适的数据结构是编写高效程序的关键。数组适合频繁访问，链表适合频繁插入删除，栈适合后进先出的场景。</p>
-]]></content>
-      <categories>
-        <category>计算机科学</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-        <tag>计算机基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hexo-blog/2024/12/31/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>Python入门：从零开始学编程</title>
