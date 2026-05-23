@@ -25,7 +25,7 @@ permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_html: false # Remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -59,11 +59,6 @@ highlight:
   exclude_languages:
   wrap: true
   hljs: false
-prismjs:
-  preprocess: true
-  line_number: true
-  line_threshold: 0
-  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -81,7 +76,7 @@ tag_map:
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
+meta_generator: false
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
